@@ -6,7 +6,6 @@ const PORT = 3000;
 app.use(express.json());
 
 // get all todos
-
 app.get("/todos", async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM todo");
@@ -17,7 +16,6 @@ app.get("/todos", async (req, res) => {
 });
 
 // get specific todo
-
 app.get("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -32,7 +30,6 @@ app.get("/todos/:id", async (req, res) => {
 });
 
 // Update todo
-
 app.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -47,6 +44,7 @@ app.put("/todos/:id", async (req, res) => {
     console.log(error.message);
   }
 });
+
 // Delete todo
 app.delete("/todos/:id", async (req, res) => {
   try {
@@ -62,7 +60,6 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 // create todo
-
 app.post("/todos", async (req, res) => {
   try {
     const { description } = req.body;
